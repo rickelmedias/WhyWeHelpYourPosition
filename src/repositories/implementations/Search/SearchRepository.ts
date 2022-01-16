@@ -18,22 +18,31 @@ export class SearchRepository implements ISearchRepository {
     private searchs: Search[] = [];
 
     async save(search: Search): Promise<void> {
-        const { name, email, website_url } = search;
-        const keyword = `${search.first_keyword} ${search.second_keyword}`.trim();
-        const currentDate = new Date();
 
-        const connection = await createConnection(options)
-        const researchesRepository = connection.getRepository(Researches)
-        const researches = researchesRepository.create({
-            name: name,
-            email: email,
-            keyword: keyword,
-            website: website_url,
-            created_at: currentDate
-        })
+        try {
+            const { name, email, website_url } = search;
+            const keyword = `${search.first_keyword} ${search.second_keyword}`.trim();
+            const currentDate = new Date();
 
-        researchesRepository.save(researches);
-        this.searchs.push(search);
+            const connection = await createConnection(options)
+            const researchesRepository = connection.getRepository(Researches)
+            const researches = researchesRepository.create({
+                name: name,
+                email: email,
+                keyword: keyword,
+                website: website_url,
+                created_at: currentDate
+            })
+
+            researchesRepository.save(researches);
+        } catch (e) {
+            console.log("You have an error in your database save, so we saved the object on Array");
+            console.log("Your error is: " + e);
+            
+            this.searchs.push(search);
+
+            console.log("You could try run the: yarn migrations to create a database if this is the error.");
+        }
     }
 
     async searchOnGoogle(keyword: string): Promise<string> {
