@@ -4,10 +4,10 @@ import { SearchGoogleController } from "./SearchGoogleController";
 import { SearchGoogleUseCase } from "./SearchGoogleUseCase";
 
 const mailtrapProvider = new MailtrapMailProvide()
-const postgresSearchRepository = new SearchRepository();
+const searchRepository = new SearchRepository();
 
 const searchGoogleUseCase = new SearchGoogleUseCase(
-    postgresSearchRepository,
+    searchRepository,
     mailtrapProvider
 );
 
