@@ -22,4 +22,11 @@ export class SearchRepository implements ISearchRepository {
 
         return promise;
     }
+
+   async itsOnFirstPage(keyword: string, webiste: string): Promise<boolean> {
+    const googleSearchResult = this.searchOnGoogle(keyword);
+    const hasYourWebsiteOnFirstGooglePage = (await googleSearchResult).includes(webiste);
+
+    return hasYourWebsiteOnFirstGooglePage;
+   }
 }

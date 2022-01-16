@@ -1,5 +1,5 @@
 import { MailtrapMailProvide } from "../../providers/implementations/MailtrapMailProvider";
-import { SearchRepository } from "../../repositories/implementations/pg/SearchRepository";
+import { SearchRepository } from "../../repositories/implementations/Search/SearchRepository";
 import { SearchGoogleController } from "./SearchGoogleController";
 import { SearchGoogleUseCase } from "./SearchGoogleUseCase";
 
