@@ -12,8 +12,7 @@ export class SearchGoogleUseCase {
     async execute(data: ISearchGoogleDTO) {
         const search = new Search(data);
         const keyword = `${search.first_keyword} ${search.second_keyword}`;
-        const hasYourWebsiteOnFirstGooglePage = await this.searchRepository.itsOnFirstPage(keyword, search.website_url);
-        
+        const hasYourWebsiteOnFirstGooglePage = await this.searchRepository.itsOnFirstPage(keyword, search.website_url);        
         
         await this.mailProvider.sendMail({
             to: {

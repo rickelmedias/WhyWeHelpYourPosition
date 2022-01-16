@@ -1,9 +1,8 @@
 import { SearchRepository } from "../../repositories/implementations/Search/SearchRepository";
-
 require('dotenv/config');
 
 describe('Testing google search method', () => {
-    it ('should return FALSE because the method DID NOT FIND the website', async () => {
+    it ('should return FALSE because the method DID NOT FIND the website on first google page', async () => {
         const searchRepository = new SearchRepository();
         const keyword = "Assistir Netflix";
         const website = "";
@@ -13,7 +12,7 @@ describe('Testing google search method', () => {
         
     });
 
-    it ('should return TRUE because the method FOUND the website', async () => {
+    it ('should return TRUE because the method FOUND the website on first google page', async () => {
         const searchRepository = new SearchRepository();
         const keyword = "Assistir Netflix";
         const website = "netflix.com";
