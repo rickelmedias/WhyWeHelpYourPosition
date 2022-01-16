@@ -10,7 +10,6 @@ export class SearchRepository implements ISearchRepository {
     }
 
     async searchOnGoogle(keyword: string): Promise<string> {
-
         const q = keyword.trim().replace(" ", "%20");
         const urlSearch: string = `https://www.google.com/search?q=${q}`;
 
@@ -24,9 +23,11 @@ export class SearchRepository implements ISearchRepository {
     }
 
    async itsOnFirstPage(keyword: string, webiste: string): Promise<boolean> {
-    const googleSearchResult = this.searchOnGoogle(keyword);
-    const hasYourWebsiteOnFirstGooglePage = (await googleSearchResult).includes(webiste);
+        if (webiste === "" || webiste === " " || webiste === "https:///" || webiste === "http://") return false;
 
-    return hasYourWebsiteOnFirstGooglePage;
+        const googleSearchResult = this.searchOnGoogle(keyword);
+        const hasYourWebsiteOnFirstGooglePage = (await googleSearchResult).includes(webiste);
+
+        return hasYourWebsiteOnFirstGooglePage;
    }
 }
