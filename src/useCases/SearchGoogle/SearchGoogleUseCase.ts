@@ -10,10 +10,13 @@ export class SearchGoogleUseCase {
     ){}
 
     async execute(data: ISearchGoogleDTO) {
-        const search = new Search(data)
-        this.searchRepository.save(search)
+        const search = new Search(data);
+        const keyword = `${search.first_keyword} ${search.second_keyword}`;
+        const googleSearchResult = this.searchRepository.searchOnGoogle(keyword);
+        const hasYourWebsiteOnFirstGooglePage = (await googleSearchResult).includes(search.website_url);
         
-
+        console.log(hasYourWebsiteOnFirstGooglePage);
+        
         await this.mailProvider.sendMail({
             to: {
                 name: data.name,
@@ -24,7 +27,12 @@ export class SearchGoogleUseCase {
                 email: 'rickddev@gmail.com'
             },
             subject: 'Entenda seu posicionamento digital',
-            body: '<p> Ola </p>'
-        })
+            body: `
+            <img src="">
+            <span style="color:#4b05a1;line-height:31px;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;text-align:center;font-weight:bold">POSICIONAMENTO DIGITAL É ESSENCIAL!</span>
+            `
+        });
+
+        this.searchRepository.save(search);
     }
 }
