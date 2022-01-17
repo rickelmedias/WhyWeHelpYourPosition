@@ -12,6 +12,40 @@
 
 > Essa API foi criada para um desafio por mim (Rickelme), a API busca pelo site do cliente no google e retorna um e-mail para o mesmo informado se ele tem uma boa posição no buscador.
 
+</br>
+<div align="center">
+<h3> Techs: </h3>
+<img src="https://img.shields.io/badge/Nodejs-black?&logo=Node.js
+&logoColor=green" />
+<img src="https://img.shields.io/badge/Typescript-black?&logo=typescript
+&logoColor=blue" />
+<img src="https://img.shields.io/badge/Express-black?&logo=Express
+&logoColor=white" />
+<img src="https://img.shields.io/badge/SQLite-black?&logo=SQLite
+&logoColor=blue" />
+<img src="https://img.shields.io/badge/Jest-black?&logo=Jest
+&logoColor=red" />
+<img src="https://img.shields.io/badge/Supertest-black?&logo=
+&logoColor=green" />
+<img src="https://img.shields.io/badge/TypeORM-black?&logo=
+&logoColor=green" />
+<img src="https://img.shields.io/badge/MailTrap-black?&logo=
+&logoColor=green" />
+<img src="https://img.shields.io/badge/TDD-black?&
+&logoColor=green" />
+<img src="https://img.shields.io/badge/Basic SOLID/CLEAN CODE-black?&logo=
+&logoColor=green" />
+
+</br>
+<h3> Design: </h3>
+<img src="https://img.shields.io/badge/HTML-black?&logo=html5
+&logoColor=red" />
+<img src="https://img.shields.io/badge/CSS-black?&logo=css3
+&logoColor=blue" />
+<img src="https://img.shields.io/badge/Canva-black?&logo=canva
+&logoColor=blue" />
+
+</div>
 
 </br>
 <hr/>
