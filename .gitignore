@@ -4,3 +4,4 @@
 /data
 *.sqlite
 yarn.lock
+.vscode
